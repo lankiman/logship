@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
-import type { LoggerConfigOptions } from "@logship/core";
+import type { LoggerConfigOptions } from "logship";
 
 import { LOGSHIP_OPTIONS } from "./logger.constants.js";
 

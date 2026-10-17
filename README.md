@@ -22,14 +22,14 @@ Logship is organized into two packages.
 
 | Package                                | Description                                                                            |
 | -------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`@logship/core`](./packages/core)     | Standalone logging library for Node.js and TypeScript applications.                    |
+| [`logship`](./packages/core)           | Standalone logging library for Node.js and TypeScript applications.                    |
 | [`@logship/nestjs`](./packages/nestjs) | NestJS integration with dependency injection, module configuration, and named loggers. |
 
 Each package has its own documentation, installation instructions, and usage examples.
 
 ### Which package should I use?
 
-**Use `@logship/core`** if you are building a Node.js application, backend service, script, worker, or any other project that needs logging without NestJS.
+**Use `logship`** if you are building a Node.js application, backend service, script, worker, or any other project that needs logging without NestJS.
 
 **Use `@logship/nestjs`** if your application uses NestJS and you want Logship to integrate with its dependency injection system.
 
@@ -40,19 +40,19 @@ Each package has its own documentation, installation instructions, and usage exa
 Install the core package:
 
 ```bash
-npm install @logship/core
+npm install logship
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm add @logship/core
+pnpm add logship
 ```
 
 Create a logger:
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger({
   level: "info",
@@ -66,7 +66,7 @@ logger.error("Something went wrong");
 
 You can configure console output, rotating files, and Loki shipping through the logger options.
 
-**Full documentation:** [@logship/core README](./packages/core/README.md)
+**Full documentation:** [logship README](./packages/core/README.md)
 
 ### NestJS
 
@@ -156,8 +156,8 @@ Logship is written in TypeScript and provides types for its public configuration
 For standalone applications:
 
 ```ts
-import { Logger } from "@logship/core";
-import type { LoggerConfigOptions } from "@logship/core";
+import { Logger } from "logship";
+import type { LoggerConfigOptions } from "logship";
 
 const options: LoggerConfigOptions = {
   level: "debug",

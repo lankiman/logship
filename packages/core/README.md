@@ -1,8 +1,8 @@
-# @logship/core
+# logship
 
 A TypeScript logging library for Node.js applications with console logging, rotating log files, and Grafana Loki integration.
 
-**@logship/core** provides a straightforward logging API built on Winston. It supports application contexts, configurable log levels, file rotation, and centralized log shipping through Loki.
+**logship** provides a straightforward logging API built on Winston. It supports application contexts, configurable log levels, file rotation, and centralized log shipping through Loki.
 
 It can be used in backend applications, APIs, background workers, command-line tools, scheduled jobs, and other Node.js environments.
 
@@ -28,19 +28,19 @@ Install using your preferred package manager.
 **npm**
 
 ```bash
-npm install @logship/core
+npm install logship
 ```
 
 **pnpm**
 
 ```bash
-pnpm add @logship/core
+pnpm add logship
 ```
 
 **yarn**
 
 ```bash
-yarn add @logship/core
+yarn add logship
 ```
 
 ## Quick Start
@@ -48,7 +48,7 @@ yarn add @logship/core
 Import the `Logger` class and create a logger instance.
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger();
 
@@ -62,7 +62,7 @@ logger.verbose("Additional diagnostic information");
 You can provide configuration when creating the logger.
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger({
   level: "debug",
@@ -83,8 +83,8 @@ The configured log level determines which messages are emitted.
 The `Logger` constructor accepts an optional `LoggerConfigOptions` object.
 
 ```ts
-import { Logger } from "@logship/core";
-import type { LoggerConfigOptions } from "@logship/core";
+import { Logger } from "logship";
+import type { LoggerConfigOptions } from "logship";
 
 const options: LoggerConfigOptions = {
   level: "info",
@@ -421,7 +421,7 @@ This allows applications to centralize logs without requiring each logger instan
 Loki is configured using the `loki` property.
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger({
   context: "API",
@@ -540,7 +540,7 @@ Refer to the exported `Logger` class declarations for their exact method signatu
 You can create multiple logger instances in the same application.
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const apiLogger = new Logger({
   context: "API",
@@ -575,8 +575,8 @@ const workerLogger = new Logger({
 Logship exports its public configuration type.
 
 ```ts
-import { Logger } from "@logship/core";
-import type { LoggerConfigOptions } from "@logship/core";
+import { Logger } from "logship";
+import type { LoggerConfigOptions } from "logship";
 
 const config: LoggerConfigOptions = {
   level: "info",
@@ -597,7 +597,7 @@ TypeScript can report incompatible values and unknown configuration properties w
 You can also use `satisfies` to validate a configuration while preserving its inferred type.
 
 ```ts
-import type { LoggerConfigOptions } from "@logship/core";
+import type { LoggerConfigOptions } from "logship";
 
 const config = {
   level: "debug",
@@ -616,7 +616,7 @@ This is useful when maintaining shared configuration objects.
 
 ```ts
 import express from "express";
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const app = express();
 
@@ -641,7 +641,7 @@ app.listen(3000, () => {
 ### Background Worker
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger({
   context: "Worker",
@@ -668,7 +668,7 @@ async function processJob(jobId: string): Promise<void> {
 ### Application with Separate Contexts
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const databaseLogger = new Logger({
   context: "Database",
@@ -685,7 +685,7 @@ authenticationLogger.log("Authentication initialized");
 ### Production-Oriented Configuration
 
 ```ts
-import { Logger } from "@logship/core";
+import { Logger } from "logship";
 
 const logger = new Logger({
   level: "info",
@@ -784,8 +784,8 @@ The primary public API is the `Logger` class.
 ### Public exports
 
 ```ts
-import { Logger } from "@logship/core";
-import type { LoggerConfigOptions } from "@logship/core";
+import { Logger } from "logship";
+import type { LoggerConfigOptions } from "logship";
 ```
 
 These are the main exports needed by most applications.

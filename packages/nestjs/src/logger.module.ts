@@ -5,7 +5,7 @@ import {
   type Provider,
 } from "@nestjs/common";
 
-import type { LoggerConfigOptions } from "@logship/core";
+import type { LoggerConfigOptions } from "logship";
 
 import { LogshipLoggerService } from "./logger.service.js";
 import { LogshipLoggerFactory } from "./logger.factory.js";

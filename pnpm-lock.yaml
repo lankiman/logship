@@ -27,7 +27,7 @@ importers:
 
   packages/nestjs:
     dependencies:
-      '@logship/core':
+      logship:
         specifier: workspace:*
         version: link:../core
     devDependencies:

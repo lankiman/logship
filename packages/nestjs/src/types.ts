@@ -1,6 +1,6 @@
 import type { FactoryProvider, ModuleMetadata, Scope } from "@nestjs/common";
 
-import type { LoggerConfigOptions } from "@logship/core";
+import type { LoggerConfigOptions } from "logship";
 
 /**
  * Configuration for a named Logship logger.

@@ -4,7 +4,7 @@
 
 `@logship/nestjs` integrates Logship with NestJS, allowing you to configure logging once and inject loggers into your services, controllers, guards, interceptors, and other providers.
 
-It is built on [`@logship/core`](../core/README.md), which handles the underlying logging functionality.
+It is built on [`logship`](../core/README.md), which handles the underlying logging functionality.
 
 ## Features
 
@@ -46,9 +46,9 @@ yarn add @logship/nestjs
 
 Your application must also have compatible versions of `@nestjs/common` and `@nestjs/core` installed.
 
-The package uses `@logship/core` internally, so you do not need to configure a separate core logger for normal NestJS usage.
+The package uses `logship` internally, so you do not need to configure a separate core logger for normal NestJS usage.
 
-If you want to import the core `Logger` class or its types directly, install `@logship/core` as an explicit dependency.
+If you want to import the core `Logger` class or its types directly, install `logship` as an explicit dependency.
 
 ## Quick Start
 
@@ -154,7 +154,7 @@ import { LogshipModule } from "@logship/nestjs";
 export class AppModule {}
 ```
 
-The `logger` property accepts the configuration options supported by `@logship/core`.
+The `logger` property accepts the configuration options supported by `logship`.
 
 ### Module options
 
@@ -173,7 +173,7 @@ You can register Logship without specifying options.
 LogshipModule.forRoot();
 ```
 
-In that case, the logger uses the defaults implemented by `@logship/core`.
+In that case, the logger uses the defaults implemented by `logship`.
 
 ### Setting the default context
 
@@ -384,7 +384,7 @@ Use `@InjectLogshipLogger()` to inject a named logger.
 ```ts
 import { Injectable } from "@nestjs/common";
 import { InjectLogshipLogger } from "@logship/nestjs";
-import type { Logger } from "@logship/core";
+import type { Logger } from "logship";
 
 @Injectable()
 export class PaymentsService {
@@ -414,7 +414,7 @@ The current implementation creates named loggers using the core `Logger` class.
 Therefore, use:
 
 ```ts
-import type { Logger } from "@logship/core";
+import type { Logger } from "logship";
 ```
 
 for the injected property's TypeScript type.
@@ -428,7 +428,7 @@ You can inject multiple named loggers into the same provider.
 ```ts
 import { Injectable } from "@nestjs/common";
 import { InjectLogshipLogger } from "@logship/nestjs";
-import type { Logger } from "@logship/core";
+import type { Logger } from "logship";
 
 @Injectable()
 export class CheckoutService {
@@ -513,7 +513,7 @@ LogshipModule.forRoot({
 
 The `audit` logger does not inherit the module's default logger configuration.
 
-Any unspecified settings use the defaults from `@logship/core`.
+Any unspecified settings use the defaults from `logship`.
 
 ### How configuration merging works
 
@@ -806,7 +806,7 @@ For most applications, registering Logship globally once in the root module is t
 
 ## Console Logging
 
-Logship uses the console logging functionality provided by `@logship/core`.
+Logship uses the console logging functionality provided by `logship`.
 
 Enable it in the module configuration.
 
@@ -867,7 +867,7 @@ For file paths, rotation rules, retention settings, and supported options, refer
 
 Logship supports sending application logs to Grafana Loki.
 
-The NestJS integration does not implement a separate Loki client. It uses the Loki shipping functionality provided by `@logship/core`.
+The NestJS integration does not implement a separate Loki client. It uses the Loki shipping functionality provided by `logship`.
 
 ### How Loki works with NestJS
 
@@ -1165,7 +1165,7 @@ Inject it into your worker service:
 ```ts
 import { Injectable } from "@nestjs/common";
 import { InjectLogshipLogger } from "@logship/nestjs";
-import type { Logger } from "@logship/core";
+import type { Logger } from "logship";
 
 @Injectable()
 export class JobsService {
@@ -1397,7 +1397,7 @@ Also verify that the named logger is registered in your module configuration.
 
 ## Related Documentation
 
-- [@logship/core](../core/README.md) — Core logger API, configuration, file logging, and Loki shipping.
+- [logship](../core/README.md) — Core logger API, configuration, file logging, and Loki shipping.
 - [NestJS Documentation](https://docs.nestjs.com/) — NestJS framework documentation.
 - [NestJS Custom Logger](https://docs.nestjs.com/techniques/logger) — Integrating custom loggers with NestJS.
 - [NestJS Dynamic Modules](https://docs.nestjs.com/fundamentals/dynamic-modules) — Understanding `forRoot()` and `forRootAsync()`.
