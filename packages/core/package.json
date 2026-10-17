@@ -2,7 +2,7 @@
   "name": "logship",
   "author": "Gboun Marvellous",
   "description": "A lightweight, configurable TypeScript logging library for Node.js with structured logging, rotating file transports, Grafana Loki integration, and NestJS support.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.cts",
