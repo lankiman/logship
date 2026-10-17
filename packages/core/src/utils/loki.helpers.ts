@@ -156,7 +156,7 @@ export function sleep(ms: number): Promise<void> {
 
 export function normalizeLokiConfig(config: LokiConfigOptions) {
   return {
-    url: config.url.toString(),
+    url: config.url?.toString(),
     orgId: config.orgId,
     deployEnv: config.deployEnv,
     auth: config.auth,
