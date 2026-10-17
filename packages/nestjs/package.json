@@ -1,5 +1,5 @@
 {
-  "name": "@logship/nestjs",
+  "name": "logship-nestjs",
   "version": "1.0.0",
   "description": "NestJS integration for Logship",
   "main": "./dist/index.js",

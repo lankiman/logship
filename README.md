@@ -20,10 +20,10 @@ Built on top of [Winston](https://github.com/winstonjs/winston), Logship provide
 
 Logship is organized into two packages.
 
-| Package                                | Description                                                                            |
-| -------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`logship`](./packages/core)           | Standalone logging library for Node.js and TypeScript applications.                    |
-| [`@logship/nestjs`](./packages/nestjs) | NestJS integration with dependency injection, module configuration, and named loggers. |
+| Package                               | Description                                                                            |
+| ------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`logship`](./packages/core)          | Standalone logging library for Node.js and TypeScript applications.                    |
+| [`logship-nestjs`](./packages/nestjs) | NestJS integration with dependency injection, module configuration, and named loggers. |
 
 Each package has its own documentation, installation instructions, and usage examples.
 
@@ -31,7 +31,7 @@ Each package has its own documentation, installation instructions, and usage exa
 
 **Use `logship`** if you are building a Node.js application, backend service, script, worker, or any other project that needs logging without NestJS.
 
-**Use `@logship/nestjs`** if your application uses NestJS and you want Logship to integrate with its dependency injection system.
+**Use `logship-nestjs`** if your application uses NestJS and you want Logship to integrate with its dependency injection system.
 
 ## Quick Start
 
@@ -73,13 +73,13 @@ You can configure console output, rotating files, and Loki shipping through the 
 Install the NestJS integration:
 
 ```bash
-npm install @logship/nestjs
+npm install logship-nestjs
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm add @logship/nestjs
+pnpm add logship-nestjs
 ```
 
 Register Logship in your application module:

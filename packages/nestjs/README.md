@@ -1,8 +1,8 @@
-# @logship/nestjs
+# logship-nestjs
 
 **Logship for NestJS** — structured application logging with dependency injection, configurable log levels, rotating files, and Grafana Loki integration.
 
-`@logship/nestjs` integrates Logship with NestJS, allowing you to configure logging once and inject loggers into your services, controllers, guards, interceptors, and other providers.
+`logship-nestjs` integrates Logship with NestJS, allowing you to configure logging once and inject loggers into your services, controllers, guards, interceptors, and other providers.
 
 It is built on [`logship`](../core/README.md), which handles the underlying logging functionality.
 
@@ -29,19 +29,19 @@ Install the package using your preferred package manager.
 ### npm
 
 ```bash
-npm install @logship/nestjs
+npm install logship-nestjs
 ```
 
 ### pnpm
 
 ```bash
-pnpm add @logship/nestjs
+pnpm add logship-nestjs
 ```
 
 ### yarn
 
 ```bash
-yarn add @logship/nestjs
+yarn add logship-nestjs
 ```
 
 Your application must also have compatible versions of `@nestjs/common` and `@nestjs/core` installed.
@@ -58,7 +58,7 @@ Import `LogshipModule` into your application's root module.
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -83,7 +83,7 @@ Inject `LogshipLogger` into any NestJS provider.
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Injectable()
 export class UsersService {
@@ -132,7 +132,7 @@ Use `forRoot()` when your logger configuration is available when the module is d
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -195,7 +195,7 @@ You can override it for a specific injected instance using `setContext()`.
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Injectable()
 export class OrdersService {
@@ -331,7 +331,7 @@ Each named logger is registered under a unique name.
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -383,7 +383,7 @@ Use `@InjectLogshipLogger()` to inject a named logger.
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { InjectLogshipLogger } from "@logship/nestjs";
+import { InjectLogshipLogger } from "logship-nestjs";
 import type { Logger } from "logship";
 
 @Injectable()
@@ -427,7 +427,7 @@ You can inject multiple named loggers into the same provider.
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { InjectLogshipLogger } from "@logship/nestjs";
+import { InjectLogshipLogger } from "logship-nestjs";
 import type { Logger } from "logship";
 
 @Injectable()
@@ -547,7 +547,7 @@ It can be synchronous or asynchronous.
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -581,7 +581,7 @@ Configure Logship:
 ```ts
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -632,7 +632,7 @@ This is important because NestJS provider tokens are registered when the dynamic
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 @Module({
   imports: [
@@ -711,7 +711,7 @@ The default scope is `Scope.TRANSIENT`.
 
 ```ts
 import { Scope } from "@nestjs/common";
-import { LogshipModule } from "@logship/nestjs";
+import { LogshipModule } from "logship-nestjs";
 
 LogshipModule.forRoot({
   scope: Scope.TRANSIENT,
@@ -924,13 +924,13 @@ import type {
   LogshipModuleOptions,
   LogshipModuleAsyncOptions,
   LogshipNamedLoggerOptions,
-} from "@logship/nestjs";
+} from "logship-nestjs";
 ```
 
 ### Type-safe module configuration
 
 ```ts
-import type { LogshipModuleOptions } from "@logship/nestjs";
+import type { LogshipModuleOptions } from "logship-nestjs";
 
 const logshipOptions = {
   isGlobal: true,
@@ -1019,7 +1019,7 @@ This keeps logger names consistent across your application.
 
 ```ts
 import { Controller, Get } from "@nestjs/common";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Controller("health")
 export class HealthController {
@@ -1042,7 +1042,7 @@ export class HealthController {
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Injectable()
 export class AuthService {
@@ -1072,7 +1072,7 @@ export class AuthService {
 
 ```ts
 import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Injectable()
 export class ExampleGuard implements CanActivate {
@@ -1100,7 +1100,7 @@ import {
   NestInterceptor,
 } from "@nestjs/common";
 import { Observable, tap } from "rxjs";
-import { LogshipLogger } from "@logship/nestjs";
+import { LogshipLogger } from "logship-nestjs";
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -1164,7 +1164,7 @@ Inject it into your worker service:
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { InjectLogshipLogger } from "@logship/nestjs";
+import { InjectLogshipLogger } from "logship-nestjs";
 import type { Logger } from "logship";
 
 @Injectable()
@@ -1232,7 +1232,7 @@ import {
   LogshipModule,
   LogshipLogger,
   InjectLogshipLogger,
-} from "@logship/nestjs";
+} from "logship-nestjs";
 ```
 
 Configuration types can be imported separately.
@@ -1242,7 +1242,7 @@ import type {
   LogshipModuleOptions,
   LogshipModuleAsyncOptions,
   LogshipNamedLoggerOptions,
-} from "@logship/nestjs";
+} from "logship-nestjs";
 ```
 
 The internal logger factory and dependency injection tokens are implementation details.
@@ -1377,7 +1377,7 @@ Typical NestJS settings include:
 Ensure you are importing it from the correct package:
 
 ```ts
-import { InjectLogshipLogger } from "@logship/nestjs";
+import { InjectLogshipLogger } from "logship-nestjs";
 ```
 
 Also verify that the named logger is registered in your module configuration.
