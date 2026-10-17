@@ -1,6 +1,7 @@
 {
   "name": "logship-nestjs",
-  "version": "1.0.2",
+  "author": "Gboun Marvellous",
+  "version": "1.0.3",
   "description": "NestJS integration for Logship",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
