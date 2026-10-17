@@ -164,6 +164,14 @@ export class LokiSink {
       return;
     }
 
+    if (!this.config.appLabel?.trim() || !this.config.jobLabel?.trim()) {
+      this.enabled = false;
+      console.warn(
+        "[logship] log shipping disabled: appLabel and jobLabel must be non-empty",
+      );
+      return;
+    }
+
     // Only validate auth when the user asked for it. `auth: false` is fine.
     if (this.config.auth) {
       this.authHeader = this.createAuthHeader(this.config);
